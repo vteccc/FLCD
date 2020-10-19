@@ -13,17 +13,22 @@ class Node:
 
 # Hash table with separate chaining
 class HashTable:
-    # Initialize hash table
     def __init__(self):
         self.capacity = 32
         self.size = 0
         self.buckets = [None] * self.capacity
 
     def __str__(self):
-        s=""
+        s = ""
+
+        s += "size is: "+str(self.size) + "\n"
         for i in self.buckets:
             if i is not None:
-                s+=str(i)+"\n"
+                s += str(i) + "\n"
+                node = i.next
+                while node is not None:
+                    s += str(node) + "\n"
+                    node = node.next
         return s
 
     # Generate a hash for a given key
@@ -31,7 +36,6 @@ class HashTable:
     # Output: Index from 0 to self.capacity
     def hash(self, key):
         hashsum = 0
-        # For each character in the key
         for idx, c in enumerate(key):
             # Add (index + length of key) ^ (current char code)
             hashsum += (idx + len(key)) ** ord(c)
@@ -53,15 +57,20 @@ class HashTable:
         # 3. If bucket is empty:
         if node is None:
             # Create node, add it, return
-            self.buckets[index] = Node(index ,value)
+            self.buckets[index] = Node(index, value)
             return
         # 4. Iterate to the end of the linked list at provided index
+        ok = 1
         prev = node
         while node is not None:
             prev = node
             node = node.next
+            if prev.value == value:
+                ok = 0
+                self.size -= 1
         # Add a new node at the end of the list with provided key/value
-        prev.next = Node(index, value)
+        if ok == 1:
+            prev.next = Node(index, value)
 
     # Find a data value based on key
     # Input:  key - string

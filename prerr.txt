@@ -1,6 +1,6 @@
-error
+function
 {
-	int 23a = 1;
-	print("the element is);
-	print(23a);
+int a = 1;
+print("the element is);
+print(a);
 }

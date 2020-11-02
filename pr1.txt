@@ -1,19 +1,17 @@
-replace
+function
 {
-	character input[255];
-	print("insert string: ");
-	read(input);
-	for(integer i = 0; i < length(input); i++)
-	{
-		if(input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')
-		{
-			input[i] = 'x';
-		}
-		if(input[i] == 'A' || input[i] == 'E' || input[i] == 'I' || input[i] == 'O' || input[i] == 'U')
-		{
-			input[i] = 'X';
-		}
-	}
-	print(input)
-	
+character input[255];
+read(input);
+for(integer i = 0; i < length(input); i = i + 1)
+{
+if(input[i] == "a" || input[i] == "e" || input[i] == "i" || input[i] == "o" || input[i] == "u")
+{
+input[i] = "x";
+}
+if(input[i] == "A" || input[i] == "E" || input[i] == "I" || input[i] == "O" || input[i] == "U")
+{
+input[i] = "X";
+}
+}
+print(input)
 }

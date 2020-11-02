@@ -14,7 +14,7 @@ class Node:
 # Hash table with separate chaining
 class HashTable:
     def __init__(self):
-        self.capacity = 255
+        self.capacity = 100
         self.size = 0
         self.buckets = [None] * self.capacity
 
@@ -38,7 +38,7 @@ class HashTable:
         hashsum = 0
         for idx, c in enumerate(key):
             # Add (index + length of key) ^ (current char code)
-            hashsum += (idx + len(key)) ** ord(c)
+            hashsum += ord(c) * (3 ** idx)
             # Perform modulus to keep hashsum in range [0, self.capacity - 1]
             hashsum = hashsum % self.capacity
         return hashsum

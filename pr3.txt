@@ -1,35 +1,31 @@
-check_in
+function
 {
-	bool is_found = False;
-	int to_find;
-	
-	print("insert element to find: ")
-	read(to_find);
-	int input[255];
-	int c;
-	print("how many items? :")
-	read(c);
-	for (integer i = 0; i < c ;i++)
-	{
-		print("insert number")
-		read(input[i]);
-	}
-	
-	for (integer i = 1; i < c; i++)
-	{
-		if(input[i] == to_find)
-		{
-			is_found = True;
-		}
-	}
-	if (is_found)
-	{
-		print("element was found!")
-	}
-	else
-	{
-		print("element was NOT found")
-	}
-
-	
+bool is_found = false;
+int to_find;
+print("insert element to find ")
+read(to_find);
+int input[255];
+int c;
+print("how many items? ")
+read(c);
+for(integer i = 0; i < c ;i = i + 1)
+{
+print("insert number")
+read(input[i]);
+}
+for(integer i = 1; i < c; i = i + 1)
+{
+if(input[i] == to_find)
+{
+is_found = True;
+}
+}
+if(is_found)
+{
+print("element was found!")
+}
+else
+{
+print("element was NOT found")
+}
 }

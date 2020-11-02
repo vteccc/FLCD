@@ -39,14 +39,15 @@ codes = {
     "&": 37,
     "|": 38,
     "||": 39,
-    "&&": 40
+    "&&": 40,
+    "length": 41
 
 }
 
-operators = ['+', '-', '*', '/', '=', '<', '<=', '>', '>=', '&', '|']
+operators = ['+', '-', '*', '/', '=', '<', '<=', '>', '>=', '&', '|', '||', '&&', '==']
 
-reservedWords = ["int", "bool", "string", "character", "if", "else", "while", "function:", "read", "write", "true",
-                 "false", "for"]
+reservedWords = ["if", "while", "read", "write", "for", "length", "int", "bool", "string", "character", "else",
+                 "function", "true", "false"]
 
 separators = ['(', ')', '[', ']', '{', '}', ';', ':']
 
@@ -54,7 +55,7 @@ separators = ['(', ')', '[', ']', '{', '}', ';', ':']
 def getTokens():
     tokens = {}
     currentId = 0
-    with open("tokens.in", 'r') as file:
+    with open("token.in", 'r') as file:
         for line in file:
             line = line.strip("\n")
             token = line

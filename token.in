@@ -1,5 +1,5 @@
 identifier
-constants
+constant
 
 +
 -
@@ -39,3 +39,4 @@ for
 |
 ||
 &&
+length

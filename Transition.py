@@ -2,10 +2,14 @@ from State import State
 
 
 class Transition:
-    def __init__(self):
-        self.state = State()
-        self.letter = ""
-        self.result = State()
+    """
+    this class represents a transition between a state, a letter and its result ( a state ).
+    it has getters and setters for every field.
+    """
+    def __init__(self, id, letter,result):
+        self.state = id
+        self.letter = letter
+        self.result = result
 
     def get_state(self):
         return self.state

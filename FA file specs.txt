@@ -1,0 +1,32 @@
+GitHub Link: https://github.com/vteccc/FLCD
+
+Implementation:
+
+    The State class has the following fields:
+        - String Identifier                         --identifier of the state
+
+    The Transition class has the following fields:
+        - String state                              --name of the start state
+        - String letter                             --letter input
+        - List<String> result                       --set of result states
+
+    Finite Automata class has the following fields:
+        - List<State> States                        --set of all states
+        - List<String> Alphabet                     --alphabet of FA
+        - String initState                          --initial state
+        - List<Transition> Transitions              --set of Transitions
+        - List<String> FinalStates                  --set of final states
+
+
+The finite automata is read from a file an has the following EBNF form:
+    state = letter {letter}
+    states = '{' state {',' state } '}'
+    alphabet = '{' stateIdentifier {',' stateIdentifier } '}'
+    initState = stateIdentifier
+    finalStates =  '{' state {',' state } '}'
+    transition = { { state, stateIdentifier, { state, {state} }, { state, stateIdentifier, { state, {state} } } } }
+    transitions = transition { trabsition }
+    stateIdentifier = letter { letter }
+    digit = '0-9'
+    letter = 'a-z'
+    charIdentifier = digit | 'a-z' | 'A-Z' | { digit | 'a-z' | 'A-Z' }

@@ -10,6 +10,7 @@ class FA:
     it has getters and setters for every field and toString to specific parts like:
     states, alphabet, transitions, final states and a string of the whole class.
     """
+
     def __init__(self):
         self.states = []
         self.alphabet = []
@@ -67,17 +68,46 @@ class FA:
         s = ""
         s += "transitions:\n[ "
         for i in self.transitions:
-            s += i.get_state().get_identifier() + " " + i.get_letter() + " " + i.get_result().get_identifier() + "\n"
+            s += i.get_state().get_identifier() + " " + i.get_letter() + " -> "
+            for j in i.get_result():
+                s += str(j.get_identifier()) + " "
+            s += "\n"
         s += "]\n"
         return s
 
     def print_finalState(self):
-        s=""
+        s = ""
         s += "final state:\n[ "
         for i in self.finalStates:
             s += i + " "
         s += "]\n"
         return s
+
+    """
+    Checks if the FA is Deterministic or not
+    """
+
+    def isDFA(self):
+        for trans in self.transitions:
+            if len(trans.get_result()) > 1:
+                return False
+        return True
+
+    def isAccepted(self, sequence):
+        if len(sequence) == 0 and self.initState in self.finalStates:
+            return True
+        currentState = self.initState
+        for char in sequence:
+            currentState = self.nextState(currentState, char)
+            if currentState is None:
+                return False
+        return currentState.get_identifier() in self.finalStates
+
+    def nextState(self, currentState, currentChar):
+        for trans in self.transitions:
+            if currentChar == trans.get_letter() and trans.get_state().get_identifier() == currentState.get_identifier():
+                return trans.get_result()[0]
+        return None
 
     def __str__(self):
         s = ""

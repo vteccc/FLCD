@@ -45,7 +45,11 @@ with open("FA.in", "r") as file:
         if '=' in line:
             line = line.rstrip()
             line = line.split(" ")
-            t = Transition(State(line[0]), line[1], State(line[3]))
+            res = line[3].split(",")
+            l =[]
+            for i in res:
+                l.append(State(i))
+            t = Transition(State(line[0]), line[1], l)
             transitions.append(t)
         else:
             for i in line:
@@ -60,6 +64,8 @@ while boi == 1:
                 + "2. Display alphabet\n"
                 + "3. Display transitions\n"
                 + "4. Display final states\n"
+                + "5. Check if it is DFA\n"
+                + "6. Check a sequence\n"
                 + "0. Quit\n")
     op = str(input("insert option: "))
     if op == "1":
@@ -70,5 +76,13 @@ while boi == 1:
         print(fa.print_transitions())
     if op == "4":
         print(fa.print_finalState())
+    if op == "5":
+        print("DFA check: "+str(fa.isDFA()))
+    if op == "6":
+        if(fa.isDFA()):
+            inp = str(input("insert sequence: "))
+            print(inp+" acceptance is: "+str(fa.isAccepted(inp)))
+        else:
+            print("Non-DFA!")
     if op == "0":
         boi = 0

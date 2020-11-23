@@ -1,5 +1,5 @@
 from ST import HashTable
-from Token import *
+from lab4.Token import *
 from PIF import PIF
 import re
 

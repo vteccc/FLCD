@@ -1,6 +1,3 @@
-from State import State
-
-
 class Transition:
     """
     this class represents a transition between a state, a letter and its result ( a state ).

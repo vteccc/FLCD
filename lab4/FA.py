@@ -1,6 +1,4 @@
-from typing import List
-
-from State import State
+from lab4.State import State
 
 
 class FA:

@@ -55,7 +55,7 @@ separators = ['(', ')', '[', ']', '{', '}', ';', ':']
 def getTokens():
     tokens = {}
     currentId = 0
-    with open("token.in", 'r') as file:
+    with open("../token.in", 'r') as file:
         for line in file:
             line = line.strip("\n")
             token = line

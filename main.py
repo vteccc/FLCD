@@ -1,5 +1,4 @@
-from FA import FA
-from ST import HashTable
+from lab4.FA import FA
 
 # ht = HashTable()
 # print(ht.hash("f"))
@@ -15,8 +14,8 @@ from ST import HashTable
 # scanner = Scanner("prerr.txt")
 # scanner.run()
 
-from State import State
-from Transition import Transition
+from lab4.State import State
+from lab4.Transition import Transition
 
 fa = FA()
 states = []
@@ -26,7 +25,7 @@ final = []
 """
 reading from the file FAa.in and parse the file to fin in the specific FA class with State classes and Transitions classes.
 """
-with open("FA.in", "r") as file:
+with open("lab4/FA.in", "r") as file:
     line = file.readline()
     line = line.rstrip()
     line = line.split(", ")

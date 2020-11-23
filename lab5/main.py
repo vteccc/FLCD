@@ -32,11 +32,25 @@ def printStartingSymbol(grammar):
     print(f"Starting symbol: {grammar.start}")
 
 
+def printANonTerminal(grammar, nt):
+    prod = grammar.productions
+    productions = nt + " -> "
+    if grammar.productions.get(nt) != None:
+        for val in grammar.productions[nt]:
+            productions += str(val) + ' | '
+        productions = productions[:-2]
+        productions += '\n'
+        print(productions)
+    else:
+        print("None")
+
+
 def printMenu():
     print("1. Print terminals")
     print("2. Print non-terminals")
     print("3. Print productions")
     print("4. Print starting symbol")
+    print("5. Print a specific non-terminal")
     print("0. Exit")
 
 
@@ -54,5 +68,8 @@ if __name__ == "__main__":
             printProductions(grammar)
         if inp == "4":
             printStartingSymbol(grammar)
+        if inp == "5":
+            nt = input("insert nonTerminal key: ")
+            printANonTerminal(grammar, nt)
         if inp == "0":
             ok = 0

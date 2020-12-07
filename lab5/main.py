@@ -1,4 +1,4 @@
-from lab5.Grammar import Grammar
+from lab5.grammar import Grammar
 
 
 def printProductions(grammar):

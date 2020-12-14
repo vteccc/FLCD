@@ -1,4 +1,5 @@
 from lab5.grammar import Grammar
+from lab5.parser import Parser
 
 
 def printProductions(grammar):
@@ -35,7 +36,7 @@ def printStartingSymbol(grammar):
 def printANonTerminal(grammar, nt):
     prod = grammar.productions
     productions = nt + " -> "
-    if grammar.productions.get(nt) != None:
+    if grammar.productions.get(nt) is not None:
         for val in grammar.productions[nt]:
             productions += str(val) + ' | '
         productions = productions[:-2]
@@ -51,6 +52,7 @@ def printMenu():
     print("3. Print productions")
     print("4. Print starting symbol")
     print("5. Print a specific non-terminal")
+    print("6. Parser Run")
     print("0. Exit")
 
 
@@ -71,5 +73,9 @@ if __name__ == "__main__":
         if inp == "5":
             nt = input("insert nonTerminal key: ")
             printANonTerminal(grammar, nt)
+        if inp == "6":
+            parser = Parser()
+            w = ["a", "a", "c", "b", "c"]
+            parser.run(w)
         if inp == "0":
             ok = 0

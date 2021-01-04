@@ -54,9 +54,6 @@ class Parser:
 
             nextInd = productionNumber + 1
 
-            # self.__configuration.workStack.append(
-            #     nonTerminal + "#" + str(nextInd))
-
             self.config.workStack.append(WorkElement(nonTerminal, nextInd))
 
             self.config.inputStack = nextProduction + self.config.inputStack
@@ -67,8 +64,6 @@ class Parser:
         else:
             self.config.inputStack[:] = self.config.inputStack[len(currentProduction):]
 
-            # self.__configuration.inputStack.insert(
-            #     0, topWorkStack.split("#")[0])
             self.config.inputStack.insert(0, nonTerminal)
 
     def success(self):
@@ -76,7 +71,6 @@ class Parser:
 
     def run(self, w):
         while self.config.state != State.FINAL and self.config.state != State.ERROR:
-            # print(self.__configuration)
 
             if self.config.state == State.NORMAL:
                 if not self.config.inputStack and self.config.index == len(w) + 1:
@@ -100,7 +94,7 @@ class Parser:
         if self.config.state == State.ERROR:
             print("ERROR")
         else:
-            print("Secventa este acceptata")
+            print("The Sequence was Accepted!")
             print("final configuration: " + str(self.config))
             production = []
             for elem in self.config.workStack:

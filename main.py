@@ -8,7 +8,6 @@ from lab4.FA import FA
 # print(ht.hash("p"))
 #
 # print(ht)
-
 # from Scanner import Scanner
 #
 # scanner = Scanner("prerr.txt")

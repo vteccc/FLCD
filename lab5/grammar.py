@@ -42,6 +42,18 @@ class Grammar:
                         raise Exception(
                             f"{prod2} is not in the list of terminals or nonTerminals")
 
+    def getProductionsOfNonTerminals(self, symbol):
+        if not symbol in self.nonTerminals:
+            return None
+        return self.productions[symbol]
+
+    def getNextProduction(self, symbol, production):
+        productions = self.getProductionsOfNonTerminals(symbol)
+        for i in range(len(productions)):
+            if production == production[i] and i < len(productions) - 1:
+                return productions[i + 1]
+        return None
+
     def nonTerminals(self):
         return self.nonTerminals
 

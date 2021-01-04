@@ -75,7 +75,7 @@ if __name__ == "__main__":
             printANonTerminal(grammar, nt)
         if inp == "6":
             parser = Parser()
-            w = ["a", "a", "c", "b", "c"]
+            w = ["a", "b"]
             parser.run(w)
         if inp == "0":
             ok = 0

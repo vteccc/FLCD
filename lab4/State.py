@@ -9,3 +9,7 @@ class State:
         return self.identifier
     def set_identifier(self,id):
         self.identifier = id
+    NORMAL = 'q'
+    ERROR = 'e'
+    BACK = 'b'
+    FINAL = 'f'

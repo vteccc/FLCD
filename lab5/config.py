@@ -1,8 +1,4 @@
-class State:
-    ERROR = 'e'
-    NORMAL = 'q'
-    BACK = 'b'
-    FINAL = 'f'
+from lab4.State import State
 
 
 class WorkElement:
@@ -14,7 +10,7 @@ class WorkElement:
         if self.productionNumber == 0:
             return str(self.value)
         else:
-            return str(self.value) + "$$" + str(self.productionNumber)
+            return str(self.value) + "->" + str(self.productionNumber)
 
 
 class Configuration:
